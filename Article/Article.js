@@ -40,3 +40,73 @@ let articles = document.querySelectorAll('.article');
 articles.forEach(function(article) {
   return new Article(article);
 });
+
+// Add Article Constructor
+
+class NewArticle {
+  constructor(content) {
+    this.title = content.title;
+    this.date = content.date;
+    this.paragraph1 = content.paragraph1;
+    this.paragraph2 = content.paragraph2;
+    this.paragraph3 = content.paragraph3;
+  }
+
+  write() {
+    const parentDiv = document.querySelector('.articles');
+    const newDiv = document.createElement('div');
+    const newTitle = document.createElement('h2');
+    const newDate = document.createElement('p');
+    const newParagraph1 = document.createElement('p');
+    const newParagraph2 = document.createElement('p');
+    const newParagraph3 = document.createElement('p');
+    const newOpenBtn = document.createElement('span');
+    const newCloseBtn = document.createElement('span');
+    
+    newDiv.classList.add('article');
+    newDate.classList.add('date');
+    newOpenBtn.classList.add('expandButton');
+    newCloseBtn.classList.add('collapseButton');
+    newCloseBtn.classList.add('hide-btn');
+
+    parentDiv.appendChild(newDiv);
+    newDiv.appendChild(newTitle);
+    newDiv.appendChild(newDate);
+    newDiv.appendChild(newParagraph1);
+    newDiv.appendChild(newParagraph2);
+    newDiv.appendChild(newParagraph3);
+    newDiv.appendChild(newOpenBtn);
+    newDiv.appendChild(newCloseBtn);
+
+    newTitle.textContent = `${this.title}`;
+    newDate.textContent = `${this.date}`;
+    newParagraph1.textContent = `${this.paragraph1}`;
+    newParagraph2.textContent = `${this.paragraph2}`;
+    newParagraph3.textContent = `${this.paragraph3}`;
+
+
+    newOpenBtn.textContent = 'Expand';
+    newOpenBtn.addEventListener('click', () => this.expandArticle(newDiv, newOpenBtn, newCloseBtn));
+
+    newCloseBtn.textContent = 'Collapse';
+    newCloseBtn.addEventListener('click', () => this.expandArticle(newDiv, newOpenBtn, newCloseBtn));
+
+    return this;
+  }
+
+  expandArticle(newDiv, newOpenBtn, newCloseBtn) {
+    newDiv.classList.toggle('article-open');
+    newOpenBtn.classList.toggle('hide-btn');
+    newCloseBtn.classList.toggle('hide-btn');
+  }
+}
+
+const test = new NewArticle({
+  title: 'Test Title',
+  date: 'Mar 6th, 2019',
+  paragraph1: 'Test test test test test test test test test test test test test test test test test test test test test test',
+  paragraph2: 'Test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2 test2',
+  paragraph3: 'Test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3 test3'
+});
+
+test.write();
