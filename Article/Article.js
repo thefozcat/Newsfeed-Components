@@ -110,3 +110,13 @@ const test = new NewArticle({
 });
 
 test.write();
+
+const es5Article = new NewArticle({
+  title: 'ES5 Is Cool Again',
+  date: 'Mar 6th, 2019',
+  paragraph1: 'Bacon ipsum dolor amet shankle chicken picanha ground round jowl beef ribs tail ham porchetta buffalo tri-tip meatloaf cow shoulder. Tail brisket pork chop, prosciutto jowl kevin short loin short ribs pork belly rump porchetta. Meatloaf tongue frankfurter capicola sausage, pancetta swine jowl flank sirloin venison. Doner strip steak ground round, spare ribs tail beef boudin tenderloin ball tip ham corned beef kevin shank meatloaf short ribs. Pork belly pancetta venison, pastrami meatloaf strip steak pig ribeye sausage.',
+  paragraph2: 'Meatball filet mignon meatloaf turkey swine alcatra, burgdoggen hamburger brisket doner cupim ribeye capicola salami tail. Meatloaf turkey flank, rump pig jerky tail. Chicken strip steak bresaola, beef hamburger porchetta pig fatback beef ribs andouille pastrami flank tri-tip. Turkey capicola sirloin, salami landjaeger swine filet mignon alcatra porchetta short loin prosciutto. Landjaeger meatball pig salami shoulder chicken cupim t-bone, hamburger tongue spare ribs ham hock buffalo burgdoggen. Sirloin pancetta turducken chuck t-bone ribeye meatloaf cow spare ribs brisket corned beef jowl.',
+  paragraph3: 'Ribeye shankle tail brisket short ribs. Spare ribs venison tenderloin prosciutto, bacon chicken doner swine cow chuck meatloaf shoulder tri-tip ribeye. Ham hock turducken sirloin, buffalo pork swine boudin drumstick. Doner swine strip steak shankle rump turducken ball tip. Bacon buffalo porchetta prosciutto, filet mignon turkey jowl spare ribs swine shank shoulder.'
+});
+
+es5Article.write();
